@@ -63,12 +63,14 @@ func init() {
 
 
 func GetAdmin(uid string) (u *Admin, err error) {
-	
+	fmt.Println("uid=", uid)
 	orm.Debug = true
 	o := orm.NewOrm()
 	o.Using("default")
 	
 	intid, err := strconv.Atoi(uid)
+	fmt.Println("intid=", intid)
+	
 	admin := Admin{Uid: intid}
 	
 	o.Read(&admin)
